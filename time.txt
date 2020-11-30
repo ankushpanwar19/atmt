@@ -1,0 +1,82 @@
+-----part1-----
+(beamsize ,time in sec) BlEU
+(1,2.141949415206909)
+(2,4.7121288776397705)
+(3,8.191786527633667)
+(4,12.041325807571411 )
+(5,17.160051584243774)
+(6,24.187572956085205)
+(7,29.94730496406555)
+(8,38.56158089637756 )
+(9,47.05944347381592)
+(10,56.98554039001465)
+(11,66.47754621505737 )
+(12,76.8624439239502)
+(13,93.05446982383728)
+(14,109.0324535369873  )
+(15,115.7671070098877)
+(16,132.52344131469727)
+(17,145.5912413597107)
+(18,168.23765540122986)
+(19,186.0801932811737)
+(20,197.01465153694153 )
+
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.1 55.0/27.2/15.7/9.1 (BP = 0.981 ratio = 0.981 hyp_len = 3819 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.0 56.5/28.8/17.3/10.3 (BP = 0.946 ratio = 0.948 hyp_len = 3689 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.931 ratio = 0.933 hyp_len = 3632 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.2 58.8/30.0/18.0/10.9 (BP = 0.915 ratio = 0.919 hyp_len = 3575 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.2 59.1/30.3/18.1/11.0 (BP = 0.909 ratio = 0.913 hyp_len = 3552 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.1 59.0/30.5/18.2/11.0 (BP = 0.900 ratio = 0.905 hyp_len = 3521 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.0 59.1/30.5/18.3/11.1 (BP = 0.894 ratio = 0.899 hyp_len = 3500 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 59.0/30.2/18.2/11.1 (BP = 0.885 ratio = 0.892 hyp_len = 3470 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 59.1/30.4/18.1/11.0 (BP = 0.882 ratio = 0.888 hyp_len = 3458 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 59.2/30.5/18.2/11.1 (BP = 0.880 ratio = 0.886 hyp_len = 3450 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 59.4/30.5/18.4/11.2 (BP = 0.877 ratio = 0.884 hyp_len = 3441 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 59.4/30.7/18.5/11.3 (BP = 0.874 ratio = 0.882 hyp_len = 3431 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 59.5/30.7/18.4/11.2 (BP = 0.873 ratio = 0.880 hyp_len = 3425 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 59.6/30.8/18.5/11.2 (BP = 0.870 ratio = 0.878 hyp_len = 3417 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 59.7/30.9/18.6/11.3 (BP = 0.866 ratio = 0.875 hyp_len = 3404 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.1 59.0/30.5/18.2/11.0 (BP = 0.900 ratio = 0.905 hyp_len = 3521 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 60.2/31.2/18.9/11.5 (BP = 0.858 ratio = 0.867 hyp_len = 3376 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 60.2/31.3/18.9/11.5 (BP = 0.855 ratio = 0.865 hyp_len = 3366 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 60.3/31.3/18.9/11.6 (BP = 0.855 ratio = 0.865 hyp_len = 3366 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 60.4/31.3/18.9/11.5 (BP = 0.852 ratio = 0.862 hyp_len = 3353 ref_len = 3892)
+
+
+--------part 2effect of alpha------
+for beam size 3
+
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.931 ratio = 0.933 hyp_len = 3632 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.932 ratio = 0.934 hyp_len = 3636 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.2/30.1/18.0/10.6 (BP = 0.933 ratio = 0.935 hyp_len = 3640 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.7 58.2/30.3/18.1/10.7 (BP = 0.936 ratio = 0.938 hyp_len = 3650 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.7 58.2/30.4/18.1/10.7 (BP = 0.938 ratio = 0.940 hyp_len = 3659 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.8 58.2/30.4/18.1/10.7 (BP = 0.940 ratio = 0.941 hyp_len = 3664 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.8 58.3/30.5/18.2/10.7 (BP = 0.943 ratio = 0.944 hyp_len = 3675 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.9 58.2/30.4/18.1/10.7 (BP = 0.944 ratio = 0.945 hyp_len = 3679 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.2/30.5/18.2/10.7 (BP = 0.948 ratio = 0.950 hyp_len = 3696 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 58.1/30.5/18.2/10.7 (BP = 0.951 ratio = 0.952 hyp_len = 3706 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.0/30.4/18.0/10.7 (BP = 0.955 ratio = 0.956 hyp_len = 3719 ref_len = 3892)
+
+best alpha=0.9
+
+----same experiment---
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.1 55.0/27.2/15.7/9.1 (BP = 0.981 ratio = 0.981 hyp_len = 3819 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.6 56.8/29.3/17.5/10.4 (BP = 0.965 ratio = 0.966 hyp_len = 3758 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 58.1/30.5/18.2/10.7 (BP = 0.951 ratio = 0.952 hyp_len = 3706 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.6 58.4/30.2/17.9/10.7 (BP = 0.940 ratio = 0.942 hyp_len = 3667 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 58.6/30.6/18.4/11.0 (BP = 0.941 ratio = 0.943 hyp_len = 3670 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.2 58.7/30.9/18.6/11.1 (BP = 0.938 ratio = 0.940 hyp_len = 3659 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.7/30.8/18.5/11.1 (BP = 0.933 ratio = 0.936 hyp_len = 3641 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.9 58.8/30.7/18.5/11.1 (BP = 0.930 ratio = 0.932 hyp_len = 3628 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 59.0/31.0/18.6/11.2 (BP = 0.926 ratio = 0.929 hyp_len = 3614 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.9/31.0/18.6/11.2 (BP = 0.926 ratio = 0.929 hyp_len = 3614 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 59.2/31.0/18.7/11.4 (BP = 0.923 ratio = 0.925 hyp_len = 3602 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 59.2/31.0/18.7/11.3 (BP = 0.923 ratio = 0.926 hyp_len = 3605 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 59.2/31.0/18.6/11.2 (BP = 0.923 ratio = 0.926 hyp_len = 3604 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.9 59.1/31.0/18.6/11.2 (BP = 0.920 ratio = 0.923 hyp_len = 3592 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.9 59.1/31.0/18.6/11.3 (BP = 0.920 ratio = 0.923 hyp_len = 3591 ref_len = 3892)
+
+Best config alpha=0.9 and beam size =6
+
+------- Diversity of beam search---------

@@ -11,7 +11,7 @@ from seq2seq import models, utils
 from seq2seq.data.dictionary import Dictionary
 from seq2seq.data.dataset import Seq2SeqDataset, BatchSampler
 from seq2seq.beam import BeamSearch, BeamSearchNode
-
+import time
 
 def get_args():
     """ Defines generation-specific hyper-parameters. """
@@ -29,6 +29,7 @@ def get_args():
 
     # Add beam search arguments
     parser.add_argument('--beam-size', default=5, type=int, help='number of hypotheses expanded in beam search')
+    parser.add_argument('--length-param', default=0.0, type=float, help='number of hypotheses expanded in beam search')
 
     return parser.parse_args()
 
@@ -114,7 +115,7 @@ def main(args):
                     mask = None
 
                 node = BeamSearchNode(searches[i], emb, lstm_out, final_hidden, final_cell,
-                                      mask, torch.cat((go_slice[i], next_word)), log_p, 1)
+                                      mask, torch.cat((go_slice[i], next_word)), log_p, 1,args.length_param)
                 # __QUESTION 3: Why do we add the node with a negative score?
                 searches[i].add(-node.eval(), node)
 
@@ -168,14 +169,14 @@ def main(args):
                     if next_word[-1 ] == tgt_dict.eos_idx:
                         node = BeamSearchNode(search, node.emb, node.lstm_out, node.final_hidden,
                                               node.final_cell, node.mask, torch.cat((prev_words[i][0].view([1]),
-                                              next_word)), node.logp, node.length)
+                                              next_word)), node.logp, node.length,args.length_param)
                         search.add_final(-node.eval(), node)
 
                     # Add the node to current nodes for next iteration
                     else:
                         node = BeamSearchNode(search, node.emb, node.lstm_out, node.final_hidden,
                                               node.final_cell, node.mask, torch.cat((prev_words[i][0].view([1]),
-                                              next_word)), node.logp + log_p, node.length + 1)
+                                              next_word)), node.logp + log_p, node.length + 1,args.length_param)
                         search.add(-node.eval(), node)
 
             # __QUESTION 5: What happens internally when we prune our beams?
@@ -214,5 +215,8 @@ def main(args):
 
 
 if __name__ == '__main__':
+    start = time.time()
     args = get_args()
     main(args)
+    end = time.time()
+    print(end - start)
