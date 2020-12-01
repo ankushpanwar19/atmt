@@ -1,26 +1,6 @@
------part1-----
-(beamsize ,time in sec) BlEU
-(1,2.141949415206909)
-(2,4.7121288776397705)
-(3,8.191786527633667)
-(4,12.041325807571411 )
-(5,17.160051584243774)
-(6,24.187572956085205)
-(7,29.94730496406555)
-(8,38.56158089637756 )
-(9,47.05944347381592)
-(10,56.98554039001465)
-(11,66.47754621505737 )
-(12,76.8624439239502)
-(13,93.05446982383728)
-(14,109.0324535369873  )
-(15,115.7671070098877)
-(16,132.52344131469727)
-(17,145.5912413597107)
-(18,168.23765540122986)
-(19,186.0801932811737)
-(20,197.01465153694153 )
+-----1 Experimenting with Beam Search-----
 
+Beamsize 1-20
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.1 55.0/27.2/15.7/9.1 (BP = 0.981 ratio = 0.981 hyp_len = 3819 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.0 56.5/28.8/17.3/10.3 (BP = 0.946 ratio = 0.948 hyp_len = 3689 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.931 ratio = 0.933 hyp_len = 3632 ref_len = 3892)
@@ -43,8 +23,9 @@ BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.7 60.3/31.3/18.
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.6 60.4/31.3/18.9/11.5 (BP = 0.852 ratio = 0.862 hyp_len = 3353 ref_len = 3892)
 
 
---------part 2effect of alpha------
-for beam size 3
+--------3 Length Normalization------
+
+    ----- search of alpha [0.0-1.0] for beam size 3-----
 
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.931 ratio = 0.933 hyp_len = 3632 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.4 58.1/30.1/17.9/10.6 (BP = 0.932 ratio = 0.934 hyp_len = 3636 ref_len = 3892)
@@ -58,9 +39,8 @@ BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.2/30.5/18.
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 58.1/30.5/18.2/10.7 (BP = 0.951 ratio = 0.952 hyp_len = 3706 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.0 58.0/30.4/18.0/10.7 (BP = 0.955 ratio = 0.956 hyp_len = 3719 ref_len = 3892)
 
-best alpha=0.9
+    ----- search for beam size [1-15] for best alpha=0.9------
 
-----same experiment---
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.1 55.0/27.2/15.7/9.1 (BP = 0.981 ratio = 0.981 hyp_len = 3819 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.6 56.8/29.3/17.5/10.4 (BP = 0.965 ratio = 0.966 hyp_len = 3758 ref_len = 3892)
 BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 23.1 58.1/30.5/18.2/10.7 (BP = 0.951 ratio = 0.952 hyp_len = 3706 ref_len = 3892)
@@ -80,3 +60,12 @@ BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 22.9 59.1/31.0/18.
 Best config alpha=0.9 and beam size =6
 
 ------- Diversity of beam search---------
+    
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 21.5 58.2/29.8/17.6/10.4 (BP = 0.906 ratio = 0.910 hyp_len = 3543 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 20.8 56.7/28.6/16.9/10.1 (BP = 0.909 ratio = 0.913 hyp_len = 3552 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 20.1 55.8/27.8/16.4/10.0 (BP = 0.895 ratio = 0.901 hyp_len = 3505 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 19.7 55.5/27.7/16.4/10.1 (BP = 0.879 ratio = 0.886 hyp_len = 3448 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 19.2 54.8/27.0/16.0/10.0 (BP = 0.869 ratio = 0.877 hyp_len = 3412 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 18.6 54.5/26.5/15.6/9.7 (BP = 0.863 ratio = 0.872 hyp_len = 3392 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 18.2 54.1/26.2/15.3/9.4 (BP = 0.859 ratio = 0.868 hyp_len = 3378 ref_len = 3892)
+BLEU+case.mixed+numrefs.1+smooth.exp+tok.13a+version.1.4.14 = 17.6 53.3/25.4/14.8/8.9 (BP = 0.855 ratio = 0.865 hyp_len = 3366 ref_len = 3892)

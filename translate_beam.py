@@ -29,7 +29,9 @@ def get_args():
 
     # Add beam search arguments
     parser.add_argument('--beam-size', default=5, type=int, help='number of hypotheses expanded in beam search')
-    parser.add_argument('--length-param', default=0.0, type=float, help='number of hypotheses expanded in beam search')
+    parser.add_argument('--alpha', default=0.9, type=float, help='Length parameter for length normalization')
+    parser.add_argument('--diversity-param', default=0.0, type=float, help='Parameter to control the diversity in beam search')
+    parser.add_argument('--nbestout', default=1, type=int, help='Parameter to control the diversity in beam search')
 
     return parser.parse_args()
 
@@ -115,7 +117,7 @@ def main(args):
                     mask = None
 
                 node = BeamSearchNode(searches[i], emb, lstm_out, final_hidden, final_cell,
-                                      mask, torch.cat((go_slice[i], next_word)), log_p, 1,args.length_param)
+                                      mask, torch.cat((go_slice[i], next_word)), log_p, 1,args.alpha)
                 # __QUESTION 3: Why do we add the node with a negative score?
                 searches[i].add(-node.eval(), node)
 
@@ -169,14 +171,14 @@ def main(args):
                     if next_word[-1 ] == tgt_dict.eos_idx:
                         node = BeamSearchNode(search, node.emb, node.lstm_out, node.final_hidden,
                                               node.final_cell, node.mask, torch.cat((prev_words[i][0].view([1]),
-                                              next_word)), node.logp, node.length,args.length_param)
+                                              next_word)), node.logp, node.length,args.alpha)
                         search.add_final(-node.eval(), node)
 
                     # Add the node to current nodes for next iteration
                     else:
                         node = BeamSearchNode(search, node.emb, node.lstm_out, node.final_hidden,
                                               node.final_cell, node.mask, torch.cat((prev_words[i][0].view([1]),
-                                              next_word)), node.logp + log_p, node.length + 1,args.length_param)
+                                              next_word)), node.logp + log_p-args.diversity_param*(j+1), node.length + 1,args.alpha)
                         search.add(-node.eval(), node)
 
             # __QUESTION 5: What happens internally when we prune our beams?
@@ -185,10 +187,10 @@ def main(args):
                 search.prune()
 
         # Segment into sentences
-        best_sents = torch.stack([search.get_best()[1].sequence[1:].cpu() for search in searches])
+        best_sents = torch.stack([best[1].sequence[1:].cpu() for search in searches for best in search.get_nbest(args.nbestout)]) # tensor of sequences 64x100 => 64x100x3
         decoded_batch = best_sents.numpy()
 
-        output_sentences = [decoded_batch[row, :] for row in range(decoded_batch.shape[0])]
+        output_sentences = [decoded_batch[row, :] for row in range(decoded_batch.shape[0])] # list of arrays
 
         # __QUESTION 6: What is the purpose of this for loop?
         temp = list()
@@ -198,20 +200,27 @@ def main(args):
                 temp.append(sent[:first_eos[0]])
             else:
                 temp.append(sent)
-        output_sentences = temp
+        output_sentences = temp # list of list
 
         # Convert arrays of indices into strings of words
         output_sentences = [tgt_dict.string(sent) for sent in output_sentences]
 
-        for ii, sent in enumerate(output_sentences):
-            all_hyps[int(sample['id'].data[ii])] = sent
+        ii=0
+        if args.nbestout==1:
+            for ii, sent in enumerate(output_sentences):
+                all_hyps[int(sample['id'].data[ii])] = sent
+        else:
+            for p in range(0,len(output_sentences),args.nbestout):
+                all_hyps[int(sample['id'].data[ii])] = output_sentences[p:(p+args.nbestout)]
+                ii+=1
+
 
 
     # Write to file
     if args.output is not None:
         with open(args.output, 'w') as out_file:
             for sent_id in range(len(all_hyps.keys())):
-                out_file.write(all_hyps[sent_id] + '\n')
+                out_file.write(str(all_hyps[sent_id]) + '\n')
 
 
 if __name__ == '__main__':

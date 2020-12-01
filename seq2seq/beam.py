@@ -53,6 +53,24 @@ class BeamSearch(object):
         node = (node[0], node[2])
 
         return node
+    
+    def get_nbest(self,n):
+        """ Returns final node with the lowest negative log probability """
+        merged = PriorityQueue()
+        for _ in range(self.final.qsize()):
+            node = self.final.get()
+            merged.put(node)
+
+        for _ in range(self.nodes.qsize()):
+            node = self.nodes.get()
+            merged.put(node)
+
+        finalnodes=[]
+        for _ in range(n):
+            node = merged.get()
+            finalnodes.append((node[0], node[2]))
+
+        return finalnodes
 
     def prune(self):
         """ Removes all nodes but the beam_size best ones (lowest neg log prob) """
